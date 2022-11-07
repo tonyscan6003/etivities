@@ -158,7 +158,7 @@ def image_with_gt_boxes(img,boxes,colour):
        print(colour)
        print(np.shape(img)
        # draw a green rectangle to visualize the bounding rect
-       img = cv2.rectangle((img), (xmin, ymin), (xmax, ymax), colour, 2)
+       img = cv2.rectangle((img), int(xmin, ymin), int(xmax, ymax), colour, 2)
        i += 1
     return img
  
