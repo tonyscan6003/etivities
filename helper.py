@@ -93,9 +93,9 @@ def gen_datasets(data_set_class,src_train_dataset, src_test_dataset):
     data_set = data_set_class[0]
     
     # Define Training Datasets
-    if data_set == "voc":
-       voc_class = data_set_class[1]
-       src_train_dataset=src_train_dataset.filter(lambda x: x['objects']['label'][0]==voc_class)
+    #if data_set == "voc":
+    #   voc_class = data_set_class[1]
+    #   src_train_dataset=src_train_dataset.filter(lambda x: x['objects']['label'][0]==voc_class)
     train_img_dataset = src_train_dataset.map(lambda x: x['image'])
     # convert to expected normalised input for VGG-16
     train_img_dataset = train_img_dataset.map(process_image)
@@ -110,9 +110,9 @@ def gen_datasets(data_set_class,src_train_dataset, src_test_dataset):
         train_label_dataset = src_train_dataset.map(lambda x: x['faces']['blur'])
         
     # Define test Dataset
-    if data_set == "voc":
-       voc_class = data_set_class[1]
-       src_test_dataset=src_test_dataset.filter(lambda x: x['objects']['label'][0]==voc_class)
+    #if data_set == "voc":
+    #   voc_class = data_set_class[1]
+    #   src_test_dataset=src_test_dataset.filter(lambda x: x['objects']['label'][0]==voc_class)
     test_img_dataset = src_test_dataset.map(lambda x: x['image'])
     test_img_dataset = test_img_dataset.map(process_image)
     if data_set == "voc":
